@@ -17,28 +17,26 @@ jobs:
     working_directory: ~/Github-Kotlin---Kanamobi-Android
 
     environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
-      CIRCLE_JDK_VERSION: oraclejdk8
-    
-    steps:
-      - checkout
+          JVM_OPTS: -Xmx3200m
+          CIRCLE_JDK_VERSION: oraclejdk8
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "build.gradle" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+        steps:
+          - checkout
 
-      - run: gradle dependencies
+          - restore_cache:
+              key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
 
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
-        
-      # run tests!
-      - run: gradle test
+          - run:
+              name: Accept licenses
+              command: yes | sdkmanager --licenses || true
+
+          - run:
+              name: Build
+              command: ./gradlew clean check build assembleAndroidTest
+
+          - save_cache:
+              paths:
+                - ~/.gradle
+              key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
 
 
