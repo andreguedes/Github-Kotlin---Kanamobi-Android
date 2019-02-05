@@ -22,7 +22,7 @@ jobs:
           command: yes | sdkmanager --licenses || true
       - run:
           name: Decrypt release key
-          command: openssl aes-256-cbc -d -in distribution/release.keystore-encrypted -out distribution/release.keystore -k $KEY
+          command: openssl aes-256-cbc -d -in distribution/release.keystore-encrypted -out distribution/release.keystore -k $DECRYPT_KEY
       - run:
           name: Build
           command: ./gradlew clean check assemble assembleAndroidTest
