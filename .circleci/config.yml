@@ -21,12 +21,14 @@ jobs:
           name: Accept licenses
           command: yes | sdkmanager --licenses || true
       - run:
+          name: Create release key
+          command: echo $DECRYPT_KEY | base64 --decode >> ${HOME}/distribution/release.keystore
+      - run:
           name: Decrypt release key
-          command: openssl aes-256-cbc -d -in distribution/release.keystore-encrypted -md md5 -k $DECRYPT_KEY >> distribution/release.keystore
-                    echo distribution/release.keystore
+          command: echo 'export KEYSTORE_PATH=${HOME}/distribution/release.keystore' >> $BASH_ENV
       - run:
           name: Build
-          command: ./gradlew clean check assemble assembleAndroidTest
+          command: ./gradlew clean check build assembleAndroidTest
       - save_cache:
           paths:
             - ~/.gradle
