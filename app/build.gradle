@@ -26,7 +26,7 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file(System.env.KEYSTORE_PATH ?: "$rootDir/distribution/release.keystore")
+            storeFile file("$rootDir/distribution/release.keystore")
             storePassword System.env.RELEASE_STORE_PASSWORD
             keyAlias System.env.RELEASE_KEY_ALIAS
             keyPassword System.env.RELEASE_KEY_PASSWORD
