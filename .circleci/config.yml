@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Decrypt release key
           command: openssl aes-256-cbc -d -in distribution/release.keystore-encrypted -md md5 -k $DECRYPT_KEY >> distribution/release.keystore
+                    echo distribution/release.keystore
       - run:
           name: Build
           command: ./gradlew clean check assemble assembleAndroidTest
