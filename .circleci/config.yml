@@ -6,6 +6,7 @@ jobs:
       - image: circleci/android:api-28-alpha
     environment:
       JVM_OPTS: -Xmx3200m
+      CIRCLE_JDK_VERSION: oraclejdk8
     steps:
       - checkout
       - restore_cache:
@@ -16,6 +17,12 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
+      - run:
+          name: Accept licenses
+          command: yes | sdkmanager --licenses || true
+      - run:
+          name: Build
+          command: ./gradlew clean check build assembleAndroidTest
       - save_cache:
           paths:
             - ~/.gradle
