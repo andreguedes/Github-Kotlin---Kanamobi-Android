@@ -50,7 +50,7 @@ jobs:
             adb shell input keyevent 82
       - run:
           name: Run Espresso UI Tests
-          command: ./gradlew :app:connectedAndroidTest
+          command: ./gradlew :app:connectedDebugAndroidTest
 
       - run:
           name: Run Tests
