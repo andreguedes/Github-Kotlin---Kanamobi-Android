@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "520145963620",
+    "firebase_url": "https://github-kanamobi.firebaseio.com",
+    "project_id": "github-kanamobi",
+    "storage_bucket": "github-kanamobi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520145963620:android:eaebf1e39c559364",
+        "android_client_info": {
+          "package_name": "br.com.andreguedes.githubkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520145963620-kbebo0fsr90o6teg01p7qpf0mrpl613l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB71_dIj0hFypIhazN4a0UdjOtpk6DExug"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
