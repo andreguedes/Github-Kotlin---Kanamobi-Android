@@ -49,7 +49,7 @@ jobs:
 
       - run:
           name: Run Tests
-          command: ./gradlew lint test
+          command: ./gradlew :app:connectedDebugTest
       - store_artifacts:
           path: app/build/reports
           destination: reports
