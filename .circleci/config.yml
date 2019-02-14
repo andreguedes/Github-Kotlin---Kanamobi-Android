@@ -39,6 +39,7 @@ jobs:
       - run:
           name: Launch Emulator
           command: |
+            apt-get install libpulse0:i386
             cd ${ANDROID_HOME}/emulator;ls
             export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib
             emulator -avd test -no-window -noaudio -no-boot-anim -no-window -accel on
