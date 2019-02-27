@@ -32,8 +32,6 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-    aaptOptions.cruncherEnabled = false
-    aaptOptions.useNewCruncher = false
 }
 
 dependencies {
@@ -45,7 +43,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
-        transitive = true;
+        transitive = true
     }
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
